@@ -1,0 +1,31 @@
+
+import random
+nove_digitos= ''
+for i in range(9):
+    nove_digitos+=str(random.randint(0,9))
+
+contador= 10
+resultado =0
+for digito in nove_digitos:
+    resultado+= contador * int(digito)
+    contador-=1
+digito_1 = (resultado*10) %11
+digito_1 = digito_1 if digito_1 <=9 else 0
+print(f'1° digito: {digito_1}')
+
+contador =11
+resultado =0
+
+dez_digitos=nove_digitos + str(digito_1)
+for digito in dez_digitos:
+    resultado+= contador * int(digito)
+    contador-=1
+
+digito_2 = (resultado*10) %11
+digito_2 = digito_2 if digito_2 <=9 else 0
+print(f'2° digito: {digito_2}')
+
+
+cpf_gerado_pelo_calculo = f'{nove_digitos}{digito_1}{digito_2}'
+print("CPF GERADO: ")
+print(cpf_gerado_pelo_calculo)
